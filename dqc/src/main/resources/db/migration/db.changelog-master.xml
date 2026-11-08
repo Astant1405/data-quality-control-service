@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="
+        http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.29.xsd">
+
+    <changeSet id="001-create-schema" author="developer">
+        <sqlFile
+                path="001-create-schema.sql"
+                relativeToChangelogFile="true"
+                splitStatements="true"/>
+
+        <rollback>
+            <sqlFile
+                    path="001-rollback-schema.sql"
+                    relativeToChangelogFile="true"
+                    splitStatements="true"/>
+        </rollback>
+    </changeSet>
+
+    <changeSet id="002-insert-rules" author="developer">
+        <sqlFile
+                path="002-insert-rules.sql"
+                relativeToChangelogFile="true"
+                splitStatements="true"/>
+
+        <rollback>
+            <sqlFile
+                    path="002-rollback-rules.sql"
+                    relativeToChangelogFile="true"
+                    splitStatements="true"/>
+        </rollback>
+    </changeSet>
+
+    <changeSet id="003-insert-test-data" author="developer">
+        <sqlFile
+                path="003-insert-test-data.sql"
+                relativeToChangelogFile="true"
+                splitStatements="true"/>
+
+        <rollback>
+            <sqlFile
+                    path="003-rollback-test-data.sql"
+                    relativeToChangelogFile="true"
+                    splitStatements="true"/>
+        </rollback>
+    </changeSet>
+
+</databaseChangeLog>

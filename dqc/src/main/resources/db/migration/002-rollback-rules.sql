@@ -1,0 +1,1 @@
+DELETE FROM kkd_rule;

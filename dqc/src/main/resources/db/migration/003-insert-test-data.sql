@@ -1,0 +1,197 @@
+INSERT INTO department (id, code, name, parent_id)
+VALUES
+(1, 'HQ', 'Центральный аппарат', NULL),
+(2, 'HQ-CIB', 'Департамент корпоративного бизнеса', 1),
+(3, 'HQ-RIB', 'Департамент розничного бизнеса', 1);
+
+
+INSERT INTO goal (
+    id,
+    department_id,
+    owner_id,
+    parent_goal_id,
+    title,
+    status,
+    due_date
+)
+VALUES
+(1, 1, 'EMP-001', NULL, 'Рост выручки компании', 'ACTIVE', '2026-12-31'),
+(2, 1, 'EMP-002', NULL, 'Повышение эффективности', 'ACTIVE', '2026-12-31'),
+(3, 1, 'EMP-003', NULL, 'Цифровая трансформация', 'ACTIVE', '2026-12-31'),
+(4, 1, 'EMP-004', NULL, 'Развитие клиентского сервиса', 'ACTIVE', '2026-12-31'),
+(5, 1, 'EMP-005', NULL, 'Оптимизация расходов', 'ACTIVE', '2026-12-31'),
+
+(6, 2, NULL, 1, 'Рост корпоративных продаж', 'ACTIVE', '2026-12-31'),
+(7, 2, 'EMP-007', 2, 'Развитие крупных клиентов', 'ACTIVE', '2026-12-31'),
+(8, 2, 'EMP-008', 1, 'Увеличение числа клиентов', 'ACTIVE', '2026-12-31'),
+(9, 2, 'EMP-009', 1, 'Рост кредитного портфеля', 'ACTIVE', '2026-12-31'),
+(10, 2, 'EMP-010', 2, 'Развитие продуктов', 'ACTIVE', '2026-12-31'),
+(11, 2, 'EMP-011', 3, 'Автоматизация процессов', 'ACTIVE', '2026-12-31'),
+(12, 2, NULL, 3, 'Сокращение времени обработки', 'ACTIVE', '2026-12-31'),
+(13, 2, 'EMP-013', 4, 'Улучшение обслуживания', 'ACTIVE', '2026-12-31'),
+(14, 2, 'EMP-014', 5, 'Снижение расходов', 'ACTIVE', '2026-12-31'),
+(15, 2, 'EMP-015', 5, 'Повышение производительности', 'COMPLETED', '2026-06-30'),
+
+(16, 3, 'EMP-016', 1, 'Рост розничных продаж', 'ACTIVE', '2026-12-31'),
+(17, 3, 'EMP-017', 2, 'Развитие цифровых каналов', 'ACTIVE', '2026-12-31'),
+(18, 3, 'EMP-018', NULL, 'Увеличение активных клиентов', 'ACTIVE', '2026-12-31'),
+(19, 3, 'EMP-019', 3, 'Рост мобильного банкинга', 'ACTIVE', '2026-12-31'),
+(20, 3, 'EMP-020', 4, 'Улучшение NPS', 'ACTIVE', '2026-12-31'),
+(21, 3, 'EMP-021', 5, 'Развитие продаж карт', 'ACTIVE', '2026-12-31'),
+(22, 3, 'EMP-022', 1, 'Повышение удержания', 'ACTIVE', '2026-12-31'),
+(23, 3, 'EMP-023', 2, 'Развитие программы лояльности', 'ACTIVE', '2026-12-31'),
+(24, 3, 'EMP-024', 3, 'Оптимизация процессов', 'ACTIVE', '2026-12-31'),
+(25, 3, 'EMP-025', 4, 'Улучшение клиентского опыта', 'CANCELLED', '2026-06-30');
+
+
+INSERT INTO key_result (
+    id,
+    goal_id,
+    title,
+    target_value,
+    actual_value,
+    weight,
+    actual_updated_at
+)
+VALUES
+(1, 1, 'Рост выручки на 15%', 15, 10, 50, NOW()),
+(2, 1, 'Рост маржинальности', 10, 7, 50, NOW()),
+(3, 2, 'Снижение операционных затрат', 20, 12, 60, NOW()),
+(4, 2, 'Автоматизация процессов', 10, 5, 40, NOW()),
+(5, 3, 'Внедрение новых систем', 5, 3, 100, NOW()),
+(6, 4, 'Увеличение NPS', 10, 8, 100, NOW()),
+(7, 5, 'Снижение затрат', 10, 5, 100, NOW()),
+(8, 6, 'Увеличение продаж', 20, 12, 50, NOW()),
+(9, 6, 'Новые корпоративные клиенты', 100, 50, 50, NOW()),
+(10, 7, 'Привлечение крупных клиентов', 20, 10, 100, NOW()),
+(11, 9, 'Рост портфеля', 30, 20, 40, NOW()),
+(12, 9, 'Новые кредиты', 50, 30, 30, NOW()),
+(13, 10, 'Новые продукты', 5, 2, 40, NOW()),
+(14, 10, 'Рост продаж продуктов', 20, 10, 40, NOW()),
+(15, 11, 'Автоматизация операций', 10, 5, 100, NOW()),
+(16, 12, 'Сокращение времени', 20, 10, 100, NOW()),
+(17, 13, 'Улучшение сервиса', 15, 10, 100, NOW()),
+(18, 14, 'Сокращение затрат', 10, 5, 100, NOW()),
+(19, 16, 'Рост розничных продаж', 20, 10, 100, NOW()),
+(20, 17, 'Рост цифровых продаж', 15, 10, 100, NOW()),
+(21, 18, 'Активные клиенты', 100, 70, 100, NOW()),
+(22, 19, 'Мобильные пользователи', 50, 30, 100, NOW()),
+(23, 20, 'Увеличение NPS', 10, 5, 100, NOW()),
+(24, 21, 'Продажи карт', 100, 60, 100, NOW()),
+(25, 22, 'Удержание клиентов', 90, 70, 100, NOW()),
+(26, 23, 'Участники программы', 1000, 500, 100, NOW()),
+(27, 24, 'Оптимизация операций', 10, 5, 100, NOW());
+
+
+
+INSERT INTO kkd_run (
+    run_code,
+    snapshot_date,
+    compared_to_run_id,
+    status,
+    started_at,
+    completed_at
+)
+VALUES
+(
+    'RUN-001',
+    '2026-11-06',
+    NULL,
+    'COMPLETED',
+    '2026-11-06 09:00:00+03',
+    '2026-11-06 09:05:00+03'
+);
+
+INSERT INTO kkd_run (
+    run_code,
+    snapshot_date,
+    compared_to_run_id,
+    status,
+    started_at,
+    completed_at
+)
+SELECT
+    'RUN-002',
+    '2026-11-07',
+    id,
+    'COMPLETED',
+    '2026-11-07 09:00:00+03',
+    '2026-11-07 09:05:00+03'
+FROM kkd_run
+WHERE run_code = 'RUN-001';
+
+
+INSERT INTO kkd_issue (
+    run_id,
+    rule_id,
+    goal_id,
+    severity,
+    description
+)
+SELECT
+    r.id,
+    rule.id,
+    issues.goal_id,
+    rule.severity,
+    issues.description
+FROM (
+    VALUES
+    ('GOAL_NO_OWNER', 6::BIGINT, 'Нет ответственного'),
+    ('GOAL_NO_KR', 8::BIGINT, 'Нет ключевых результатов'),
+    ('KR_WEIGHTS_SUM', 9::BIGINT, 'Сумма весов равна 70%'),
+    ('CASCADE_NO_PARENT', 7::BIGINT, 'Нет родительской цели'),
+    ('CASCADE_NO_PARENT', 18::BIGINT, 'Нет родительской цели')
+    ) AS issues(rule_code, goal_id, description)
+JOIN kkd_rule rule
+ON rules.code = issues.rule_code
+JOIN kkd_run r
+ON r.run_code = 'RUN-001';
+
+
+INSERT INTO kkd_issues (
+    run_id,
+    rule_id,
+    goal_id,
+    severity,
+    description
+)
+SELECT
+    r.id,
+    rule.id,
+    issues.goal_id,
+    rule.severity,
+    issues.description
+FROM (
+    VALUES
+    ('GOAL_NO_OWNER', 6::BIGINT, 'Нет ответственного'),
+    ('KR_WEIGHTS_SUM', 10::BIGINT, 'Сумма весов равна 80%'),
+    ('CASCADE_NO_PARENT', 18::BIGINT, 'Нет родительской цели'),
+    ('GOAL_NO_OWNER', 12::BIGINT, 'Нет ответственного')
+    ) AS issues(rule_code, goal_id, description)
+JOIN kkd_rule rule
+ON rule.code = issues.rule_code
+JOIN kkd_run r
+ON r.run_code = 'RUN-002';
+
+
+
+INSERT INTO key_result (
+    goal_id,
+    title,
+    target_value,
+    actual_value,
+    weight,
+    actual_updated_at
+)
+VALUES (
+    8,
+    'Увеличение числа клиентов',
+    100,
+    50,
+    100,
+    NOW()
+);
+
+UPDATE key_result
+SET weight = 60
+WHERE id = 12;

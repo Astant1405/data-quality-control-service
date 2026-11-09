@@ -1,4 +1,10 @@
 package com.example.dqc.api.dto;
 
-public record DeltaInfo(Integer newIssues, Integer persistingIssues, Integer resolvedIssues) {
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+public record DeltaInfo(
+        @JsonProperty("new") Integer newIssues,
+        @JsonProperty("persisting") Integer persistingIssues,
+        @JsonProperty("resolved") Integer resolvedIssues
+) {
 }

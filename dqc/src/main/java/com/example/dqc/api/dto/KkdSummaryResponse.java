@@ -1,13 +1,15 @@
 package com.example.dqc.api.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.List;
 
 public record KkdSummaryResponse(
         RunInfo run,
-        RunInfo comparedTo,
+        @JsonProperty("compared_to") RunInfo comparedTo,
         UnitInfo unit,
         List<MetricInfo> metrics,
-        List<SeverityInfo> issuesBySeverity,
+        @JsonProperty("issues_by_severity") List<SeverityInfo> issuesBySeverity,
         DeltaInfo delta
 
 ) {

@@ -36,6 +36,8 @@ public class Department {
         return name;
     }
 
+    public String getCode() { return code;}
+
     public void setId(Long id){
         this.id = id;
     }

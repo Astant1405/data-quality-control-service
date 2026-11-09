@@ -1,7 +1,0 @@
-DROP TABLE IF EXISTS kkd_metric_snapshot;
-DROP TABLE IF EXISTS kkd_issue;
-DROP TABLE IF EXISTS kkd_run;
-DROP TABLE IF EXISTS kkd_rule;
-DROP TABLE IF EXISTS key_result;
-DROP TABLE IF EXISTS goal;
-DROP TABLE IF EXISTS department;

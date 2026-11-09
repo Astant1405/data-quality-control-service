@@ -5,9 +5,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Column;
-import lombok.Data;
 
-@Data
 @Entity
 public class KkdRule {
 
@@ -24,5 +22,24 @@ public class KkdRule {
     @Column(nullable = true)
     private String severity;
 
-    private boolean isActive;
+    @Column(name = "is_active")
+    private boolean active;
+
+    public KkdRule(){}
+
+    public String getCode(){
+        return code;
+    }
+
+    public Long getId(){
+        return id;
+    }
+
+    public String getSeverity(){
+        return severity;
+    }
+
+    public boolean isActive(){
+        return active;
+    }
 }

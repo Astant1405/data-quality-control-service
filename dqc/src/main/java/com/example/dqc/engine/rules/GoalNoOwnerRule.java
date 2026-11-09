@@ -1,10 +1,10 @@
 package com.example.dqc.engine.rules;
 
 import com.example.dqc.engine.KkdRule;
-import com.example.dqc.dto.DetectedIssue;
-import com.example.dqc.dto.GoalDto;
-import com.example.dqc.dto.KkdContext;
-import com.example.dqc.dto.ObjectType;
+import com.example.dqc.domain.DetectedIssue;
+import com.example.dqc.domain.GoalDto;
+import com.example.dqc.domain.KkdContext;
+import com.example.dqc.domain.ObjectType;
 import org.springframework.stereotype.Component;
 
 import java.util.List;

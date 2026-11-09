@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DatabaseSessions">
+    <database-sessions>
+      <list>
+        <database-session id="72346288-adf1-41dd-97b1-061afd5d8424" dataSourceUniqueId="68c4434e-da08-4165-a799-bd4311c96a72" name="Default session" defaultSession="true">
+          <option name="filesPath">
+            <option value="$APPLICATION_CONFIG_DIR$/sqlConsoles/SQL Console" />
+          </option>
+          <config>
+            <DatabaseSessionConfig>
+              <option name="autoCommit" value="true" />
+            </DatabaseSessionConfig>
+          </config>
+        </database-session>
+      </list>
+    </database-sessions>
+  </component>
+</project>

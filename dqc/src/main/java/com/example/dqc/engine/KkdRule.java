@@ -1,7 +1,7 @@
 package com.example.dqc.engine;
 
-import com.example.dqc.dto.DetectedIssue;
-import com.example.dqc.dto.KkdContext;
+import com.example.dqc.domain.DetectedIssue;
+import com.example.dqc.domain.KkdContext;
 
 import java.util.List;
 

@@ -1,11 +1,11 @@
 package com.example.dqc.engine.rules;
 
 import com.example.dqc.engine.KkdRule;
-import com.example.dqc.dto.GoalDto;
-import com.example.dqc.dto.KkdContext;
-import com.example.dqc.dto.DetectedIssue;
-import com.example.dqc.dto.ObjectType;
-import com.example.dqc.dto.DepartmentDto;
+import com.example.dqc.domain.GoalDto;
+import com.example.dqc.domain.KkdContext;
+import com.example.dqc.domain.DetectedIssue;
+import com.example.dqc.domain.ObjectType;
+import com.example.dqc.domain.DepartmentDto;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -40,12 +40,6 @@ public class CascadeNoParentRule implements KkdRule {
             return false;
         }
 
-        if (goal.parentGoalId() == null) {
-            return true;
-        }
-
-        GoalDto parentGoal = context.goals().get(goal.parentGoalId());
-
-        return parentGoal == null || !department.parentId().equals(parentGoal.departmentId());
+        return goal.parentGoalId() == null;
     }
 }

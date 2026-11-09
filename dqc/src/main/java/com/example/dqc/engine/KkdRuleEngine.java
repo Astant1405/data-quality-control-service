@@ -1,11 +1,12 @@
 package com.example.dqc.engine;
 
-import com.example.dqc.dto.DetectedIssue;
-import com.example.dqc.dto.KkdContext;
+import com.example.dqc.domain.DetectedIssue;
+import com.example.dqc.domain.KkdContext;
 import org.springframework.stereotype.Component;
 
 import java.util.Comparator;
 import java.util.List;
+import java.util.Set;
 
 @Component
 public class KkdRuleEngine {
@@ -18,11 +19,16 @@ public class KkdRuleEngine {
                 .toList();
     }
 
-    public List<DetectedIssue> evaluate(KkdContext context) {
+    public Set<String> getRuleCodes() {
         return rules.stream()
-                .flatMap(rule ->
-                        rule.evaluate(context).stream()
-                )
+                .map(KkdRule::code)
+                .collect(java.util.stream.Collectors.toUnmodifiableSet());
+    }
+
+    public List<DetectedIssue> evaluate(KkdContext context, Set<String> activeRuleCodes) {
+        return rules.stream()
+                .filter(rule -> activeRuleCodes.contains(rule.code()))
+                .flatMap(rule -> rule.evaluate(context).stream())
                 .sorted(
                         Comparator
                                 .comparing(DetectedIssue::ruleCode)

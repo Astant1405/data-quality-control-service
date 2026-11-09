@@ -34,3 +34,7 @@ build/
 
 ## Gigaide ##
 .gigaide
+
+# Environment variables
+.env
+!.env.example

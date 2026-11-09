@@ -5,13 +5,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.GenerationType;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.JoinColumn;
 import jakarta.persistence.Column;
-import lombok.Data;
 
-@Data
 @Entity
 public class Department {
     @Id
@@ -24,7 +19,32 @@ public class Department {
     @Column(nullable = false)
     private String name;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "parent_id")
-    private Department parentId;
+    @Column(name = "parent_id")
+    private Long parentId;
+
+    public Department(){}
+
+    public Long getId(){
+        return id;
+    }
+
+    public Long getParentId(){
+        return parentId;
+    }
+
+    public String getName(){
+        return name;
+    }
+
+    public void setId(Long id){
+        this.id = id;
+    }
+
+    public void setName(String name){
+        this.name = name;
+    }
+
+    public void setParentId(Long parentId){
+        this.parentId = parentId;
+    }
 }
